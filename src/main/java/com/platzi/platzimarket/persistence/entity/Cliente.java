@@ -1,12 +1,8 @@
 package com.platzi.platzimarket.persistence.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @Entity
@@ -27,6 +23,9 @@ public class Cliente {
 
     @Column(name = "correo_electronico")
     private String correoElectronico;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 
     public Long getId() {
         return id;

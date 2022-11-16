@@ -1,11 +1,6 @@
 package com.platzi.platzimarket.persistence.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
@@ -32,6 +27,10 @@ public class Producto {
     private Long cantidadStock;
 
     private Boolean estado;
+
+    @ManyToOne // relacion de muchos a uno
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Categoria categoria;
 
     public Long getIdProducto() {
         return idProducto;

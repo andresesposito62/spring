@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -19,6 +21,9 @@ public class Categoria {
     private String descripcion;
 
     private Boolean estado;
+
+    @OneToMany(mappedBy = "categoria") // relacion una a muchas
+    private List<Producto> productos;
 
     public Long getIdCategoria() {
         return idCategoria;
